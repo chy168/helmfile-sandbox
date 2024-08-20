@@ -1,0 +1,21 @@
+repositories:
+- name: stable
+  url: https://charts.helm.sh/stable
+
+environments: 
+  dev:
+    values:
+      - env: dev
+  test:
+    values:
+      - env: test
+
+releases:
+- name: nginx-test
+  namespace: default
+  chart: ./nginx-test
+  values:
+    - test.yaml.gotmpl
+  # version: 1.6.7
+  # values:
+  # - values.yaml
